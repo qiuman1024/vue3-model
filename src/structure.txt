@@ -1,0 +1,36 @@
+.
+├── App.vue
+├── api
+├── assets
+│   ├── base.css
+│   ├── logo.svg
+│   └── main.css
+├── components
+│   ├── HelloWorld.vue
+│   ├── TheWelcome.vue
+│   ├── WelcomeItem.vue
+│   ├── __tests__
+│   │   └── HelloWorld.spec.ts
+│   └── icons
+│       ├── IconCommunity.vue
+│       ├── IconDocumentation.vue
+│       ├── IconEcosystem.vue
+│       ├── IconSupport.vue
+│       └── IconTooling.vue
+├── directives
+├── layout
+├── main.ts
+├── plugins
+├── router
+│   └── index.ts
+├── stores
+│   └── counter.ts
+├── structure.txt
+├── test
+├── types
+├── utils
+└── views
+    ├── AboutView.vue
+    └── HomeView.vue
+
+15 directories, 19 files
