@@ -6,7 +6,6 @@
 - vue-router
 - pinia
 - axios
-- element-plus
 - vite
 - eslint
 - prettier

@@ -16,10 +16,16 @@ export default [
 
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
   skipFormatting,
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off', //关闭any类型检查
+      '@typescript-eslint/no-unused-vars': 'off', //关闭未使用变量检查
+    },
+  },
 ]

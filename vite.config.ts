@@ -7,14 +7,23 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-    vueDevTools(),
-  ],
+  plugins: [vue(), vueJsx(), vueDevTools()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  define: {
+    __API_URL__: JSON.stringify('/api'),
+  },
+  server: {
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'https://devapi.cn',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '/'),
+      },
     },
   },
 })
