@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { login } from './api/login'
 
-async function fn() {
+async function send() {
   const res = await login()
   console.log(res)
 }
@@ -11,8 +11,7 @@ async function fn() {
 
 <template>
   <header>
-    <button @click="fn">123</button>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <button @click="send">发送请求</button>
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
