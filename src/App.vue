@@ -11,7 +11,7 @@ async function send() {
 
 <template>
   <header>
-    <button @click="send">发送请求</button>
+    <button class="bg-blue-500 text-white" @click="send">发送请求</button>
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />

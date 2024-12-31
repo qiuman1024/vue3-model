@@ -11,6 +11,8 @@
 - prettier
 - husky
 - lint-staged
+- tailwindcss
+- element-plus
 
 # src目录结构
 
