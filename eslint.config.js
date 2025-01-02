@@ -26,6 +26,7 @@ export default [
     rules: {
       '@typescript-eslint/no-explicit-any': 'off', //关闭any类型检查
       '@typescript-eslint/no-unused-vars': 'off', //关闭未使用变量检查
+      'vue/multi-word-component-names': 'off',
     },
   },
 ]
