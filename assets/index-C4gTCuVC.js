@@ -1,0 +1,1 @@
+import{_ as a,c,a as l,b as t,w as o,r as n,o as _,d}from"./index-BnGbB-MF.js";const i={},u={class:"grid grid-cols-2 gap-4 px-3 py-4"};function p(f,e){const s=n("el-button"),r=n("router-link");return _(),c("main",null,[l("div",u,[t(r,{to:"/design"},{default:o(()=>[t(s,null,{default:o(()=>e[0]||(e[0]=[d("设计问卷")])),_:1})]),_:1})])])}const x=a(i,[["render",p]]);export{x as default};
