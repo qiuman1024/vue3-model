@@ -34,7 +34,7 @@ const baseList = ref([
     defaultData: GetSurveyData.createQuestion(QuestionType.DROPDOWN),
   },
 ])
-const addData = (defaultData: Question) => {
+const addData = (defaultData: Record<string, any>) => {
   const data = cloneDeep(toRaw(defaultData))
   addQuestion(data)
 }

@@ -5,7 +5,7 @@ const { surveyData, currentPageIndex, currentQuestion } = useSurey()
 console.log(surveyData.value)
 </script>
 <template>
-  <div class="overflow-y-auto h-full">
+  <div>
     <!-- 问卷标题 s -->
     <div class="mb-2">
       <h1 class="text-center text-2xl">{{ surveyData.title }}</h1>
@@ -19,7 +19,7 @@ console.log(surveyData.value)
     <!-- 问卷标题 e -->
 
     <!-- 页码标题 s -->
-    <div v-for="page in surveyData.pages" :key="page.id">
+    <div v-for="(page, pageIndex) in surveyData.pages" :key="page.id">
       <div class="text-base">{{ page.title }}</div>
       <div v-if="page.description" class="text-center text-sm text-gray-500">
         {{ page.description }}
@@ -28,9 +28,9 @@ console.log(surveyData.value)
         <!-- 问题 s -->
         <Question
           v-for="(question, index) in page.questions ?? []"
-          :question="question"
-          :key="question.id"
-          v-model="(page.questions ??= [])[index]"
+          :key="question.props.id"
+          :pageIndex="pageIndex"
+          v-model="(page.questions ??= [])[index].props"
         ></Question>
         <!-- 问题 e -->
       </div>

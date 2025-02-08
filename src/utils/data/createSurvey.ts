@@ -1,4 +1,5 @@
-import type { QuestionType } from '@/types/survey'
+import { QuestionType } from '@/types/survey'
+import type { QuestionItem } from '@/types/survey'
 import survey from '@/utils/data/survey/survey'
 import page from '@/utils/data/surveyPage/page'
 const importModules: Record<string, { default: any }> = import.meta.glob(
@@ -23,10 +24,15 @@ export default class GetSurveyData {
   static createPage() {
     return new page().defaultProps
   }
-  static createQuestion(type: QuestionType) {
-    if (modules[type]) {
-      const data = new modules[type]()
-      return data.props
+  static createQuestion(type: QuestionType): QuestionItem {
+    if (!modules[type]) {
+      type = QuestionType.TEXT_INPUT // 默认文本输入
     }
+    const data = new modules[type]()
+    const questionItem: QuestionItem = {
+      props: data.props,
+      propsConfig: data.propsConfig,
+    }
+    return questionItem
   }
 }

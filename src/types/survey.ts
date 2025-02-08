@@ -10,10 +10,10 @@ export interface Survey extends BaseEntity {
 }
 
 // 页
-export interface Page<T extends Question = Question> extends BaseEntity {
+export interface Page extends BaseEntity {
   id: string
   name: string
-  questions?: T[]
+  questions?: QuestionItem[]
 }
 
 // 问题
@@ -27,6 +27,8 @@ export interface Question extends BaseEntity {
   enableIf?: string // 启用条件
   type: QuestionType // 问题类型
   value?: string | string[] // 值
+  remark?: string // 备注
+  [key: string]: any // 添加索引签名
 }
 
 // 问题类型
@@ -60,9 +62,9 @@ export interface MultiInputQuestion extends Question {
 export interface RadioGroupQuestion extends Question {
   type: QuestionType.RADIO_GROUP
   showNoneItem: boolean // 是否显示空选项
-  noneText?: string // 空选项文本
+  noneText: string // 空选项文本
   showOtherItem: boolean // 是否显示其他选项
-  otherText?: string // 其他选项文本
+  otherText: string // 其他选项文本
   choices: choices[] // 选项
 }
 
@@ -70,9 +72,9 @@ export interface RadioGroupQuestion extends Question {
 export interface CheckboxGroupQuestion extends Question {
   type: QuestionType.CHECKBOX_GROUP
   showNoneItem: boolean // 是否显示空选项
-  noneText?: string // 空选项文本
+  noneText: string // 空选项文本
   showOtherItem: boolean // 是否显示其他选项
-  otherText?: string // 其他选项文本
+  otherText: string // 其他选项文本
   showSelectAllItem: boolean // 是否显示全选选项
   choices: choices[] // 选项
 }
@@ -81,9 +83,28 @@ export interface CheckboxGroupQuestion extends Question {
 export interface DropdownQuestion extends Question {
   type: QuestionType.DROPDOWN
   showNoneItem: boolean // 是否显示空选项
-  noneText?: string // 空选项文本
+  noneText: string // 空选项文本
   showOtherItem: boolean // 是否显示其他选项
-  otherText?: string // 其他选项文本
+  otherText: string // 其他选项文本
   choices: choices[] // 选项
   placeholder?: string // 输入框提示
+}
+
+// 配置项
+export type PropsConfig = {
+  title: string
+  type: string
+  propsKey: string
+  optionsKey?: string
+}
+
+// 配置项组
+export type PropsConfigGroup = {
+  name: string
+  children: PropsConfig[]
+}
+
+export type QuestionItem = {
+  props: Question
+  propsConfig: PropsConfigGroup[]
 }
